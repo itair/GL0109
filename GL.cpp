@@ -46,6 +46,32 @@ void keyboard(unsigned char key,int x,int y)
   }
   glutPostRedisplay();
 }
+void processMenuEvents(int option) {
+  switch (option)
+  {
+  case 1:
+    ;
+  case 2:
+    ;
+  case 3:
+    ;
+  default:
+    break;
+  }
+}
+
+void creatGLUTMenus() {
+  int menu;
+  menu = glutCreateMenu(processMenuEvents);
+
+  glutAddMenuEntry("Red",1);
+  glutAddMenuEntry("BLue",2);
+  glutAddMenuEntry("Green",3);
+
+  glutAttachMenu(GLUT_RIGHT_BUTTON);
+}
+
+
 
 int main(int argc,char** argv)
 {
@@ -57,6 +83,7 @@ int main(int argc,char** argv)
   init();
   glutDisplayFunc(display);
   glutKeyboardFunc(keyboard);
+  creatGLUTMenus(); // mouse
   glutMainLoop();
   return 0;
 }
